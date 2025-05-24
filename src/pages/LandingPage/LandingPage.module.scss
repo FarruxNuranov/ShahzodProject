@@ -438,6 +438,19 @@
   background-color: #000000;
   padding: 4rem 0;
 
+  .cardTitle {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+      font-weight: bold;
+  }
+
   .cardbox {
     display: flex;
     flex-direction: column;

@@ -233,7 +233,7 @@ export default function LandingPage() {
         </div>
       </div>
     </section>
-    <section className={styles.aboutSection}>
+    <section id="about" className={styles.aboutSection}>
       <div className="container">
         <div className={styles.aboutContent}>
           {/* Текстовая часть */}
@@ -265,7 +265,9 @@ export default function LandingPage() {
       </div>
     </section>
       {/* ——— Cards Section ——— */}
-      <section className={styles.cardsSection}>
+      <section id="services" className={styles.cardsSection}>
+      <h2 className={styles.cardTitle}>Services</h2>
+
      <div className="container">
      <div className={styles.cardbox}>
         {cards.map((card, idx) => (
