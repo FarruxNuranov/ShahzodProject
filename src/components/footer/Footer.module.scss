@@ -1,0 +1,122 @@
+/* src/components/Footer/Footer.module.scss */
+.footerSection {
+  background: #000;
+  color: #fff;
+  padding: 3rem 0 1.5rem;
+  font-family: 'Courier New', monospace;
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .footerInner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .col {
+    flex: 1 1 200px;
+    min-width: 180px;
+
+    h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      color: #7ed321;
+    }
+
+    p, a {
+      font-size: 0.9rem;
+      color: #ccc;
+      line-height: 1.6;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+
+    .links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .socials {
+      display: flex;
+      gap: 1rem;
+
+      a {
+        display: inline-flex;
+        width: 32px;
+        height: 32px;
+        align-items: center;
+        justify-content: center;
+        background: rgba(126, 211, 33, 0.2);
+        border-radius: 50%;
+        transition: background 0.2s;
+
+        svg {
+          width: 16px;
+          height: 16px;
+          fill: #fff;
+        }
+
+        &:hover {
+          background: rgba(126, 211, 33, 0.5);
+        }
+      }
+    }
+  }
+
+  .logo {
+    width: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .desc {
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.6;
+  }
+
+  .copy {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #555;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 1rem;
+  }
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .footerSection {
+    padding: 2rem 0 1rem;
+
+    .footerInner {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .col {
+      min-width: unset;
+      flex: 1;
+    }
+
+    .socials {
+      justify-content: center;
+    }
+  }
+}

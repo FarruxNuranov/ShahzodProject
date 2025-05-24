@@ -6,13 +6,14 @@ import Lottie from "lottie-react";
 import robotAnimation from "../../assets/robot.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import portrait from '../../assets/portrait.png' // ваш портрет
-
+import Footer from "../../components/footer/Footer.jsx";
 import { Navigation, Pagination } from 'swiper/modules'
 // Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { item1, item2, logo } from "../../utils/getImg.js";
+
 
 const partnerIcons = [
   logo,
@@ -89,8 +90,8 @@ const cards = [
   },
   {
     img: item1,
-    heading: 'Heading Three',
-    text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
+    heading: 'Integration with AI for Commentary',
+    text: 'The final step is connecting the detected data to an AI system that generates real-time commentary. Using natural language generation (NLG) models like GPT, the AI can produce human-like commentary based on the detected players and events. For example, if a player scores a goal, the AI can instantly describe the event with contextual flair—just like a real sports commentator.'
   }
 ]
 
@@ -278,7 +279,7 @@ export default function LandingPage() {
     </section>
       {/* ——— Cards Section ——— */}
       <section id="services" className={styles.cardsSection}>
-      <h2 className={styles.cardTitle}>Services</h2>
+      <h2 className={styles.cardTitle}>"How does this work?"</h2>
 
      <div className="container">
      <div className={styles.cardbox}>
@@ -339,6 +340,7 @@ export default function LandingPage() {
         </div>
       </div>
     </section>
+     <Footer />
     </>
   );
 }
