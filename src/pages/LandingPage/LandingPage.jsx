@@ -1,6 +1,6 @@
 // src/pages/LandingPage/LandingPage.jsx
 import React, { useState } from "react";
-import Navbar from "@/components/Navbar/Navbar";
+import Navbar from '@/components/Navbar/Navbar.jsx'
 import styles from "./LandingPage.module.scss";
 import Lottie from "lottie-react";
 import robotAnimation from "@/assets/robot.json";
