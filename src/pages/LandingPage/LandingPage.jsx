@@ -297,6 +297,48 @@ export default function LandingPage() {
       </div>
      </div>
     </section>
+     <section id="contact" className={styles.contactSection}>
+      <div className="container">
+        <h2 className={styles.title}>Get in Touch</h2>
+        <div className={styles.inner}>
+          {/* Левый блок с контактами */}
+          <div className={styles.info}>
+            <div className={styles.card}>
+              <h3>Our Office</h3>
+              <p>1234 Elm Street<br/>Springfield, USA</p>
+            </div>
+            <div className={styles.card}>
+              <h3>Email Us</h3>
+              <p><a href="mailto:info@company.com">info@company.com</a></p>
+            </div>
+            <div className={styles.card}>
+              <h3>Call Us</h3>
+              <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </div>
+           
+          </div>
+
+          {/* Правый блок с формой */}
+          <form className={styles.form}>
+            <div className={styles.field}>
+              <label htmlFor="name">Name</label>
+              <input type="text" id="name" placeholder="Your name" required />
+            </div>
+            <div className={styles.field}>
+              <label htmlFor="email">Email</label>
+              <input type="email" id="email" placeholder="you@example.com" required />
+            </div>
+            <div className={styles.field}>
+              <label htmlFor="message">Message</label>
+              <textarea id="message" rows="5" placeholder="How can we help?" required/>
+            </div>
+            <button type="submit" className={styles.submitBtn}>
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
     </>
   );
 }

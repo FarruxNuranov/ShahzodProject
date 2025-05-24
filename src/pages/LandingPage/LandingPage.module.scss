@@ -325,13 +325,6 @@
 }
 
 
-
-
-
-
-/* ========== Cards Section ========== */
-/* ========== Cards Section ========== */
-/* В LandingPage.module.scss */
 .aboutSection {
   background-color: #000;
   padding: 4rem 0;
@@ -421,7 +414,165 @@
   }
 }
 
-/* Адаптив */
+
+/* src/components/ContactSection/ContactSection.module.scss */
+
+.contactSection {
+  background: #000;
+  color: #fff;
+  padding: 4rem 0;
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+  }
+
+  .inner {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+  }
+
+  .info {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 8px;
+      transition: background 0.3s, transform 0.3s;
+
+      &:hover {
+        background: rgba(126, 211, 33, 0.1);
+        transform: translateY(-4px);
+      }
+
+      h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.25rem;
+        color: #7ed321;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: underline;
+        transition: color 0.2s;
+        &:hover {
+          color: #7ed321;
+        }
+      }
+
+      .socials {
+        display: flex;
+        gap: 0.75rem;
+        .icon {
+          font-size: 1.5rem;
+          display: inline-block;
+          transition: color 0.2s;
+          &:hover {
+            color: #7ed321;
+          }
+        }
+      }
+    }
+  }
+
+  .form {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+
+    .field {
+      margin-bottom: 1rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.85rem;
+        border: none;
+        border-radius: 4px;
+        background: #1a1a1a;
+        color: #fff;
+        font-size: 1rem;
+        font-family: inherit;
+        resize: vertical;
+      }
+
+      input:focus,
+      textarea:focus {
+        outline: 2px solid #7ed321;
+      }
+    }
+
+    .submitBtn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: #7ed321;
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      &:hover {
+        background: #5fae1d;
+      }
+    }
+  }
+}
+
+/* ========== Адаптив: мобильная версия ========== */
+@media (max-width: 768px) {
+  .contactSection {
+    padding: 2rem 0;
+
+    .inner {
+      flex-direction: column;
+      
+    }
+
+    .info {
+      .card {
+        text-align: center;
+      }
+    }
+
+    .form {
+      margin-top: 2rem;
+    }
+  }
+}
+
+
+
+
+
+
+
 @media (max-width: 768px) {
   .aboutSection {
     .aboutContent {
@@ -433,7 +584,7 @@
     }
   }
 }
-/* ========== Alternating Cards Section ========== */
+
 .cardsSection {
   background-color: #000000;
   padding: 4rem 0;
@@ -476,10 +627,7 @@
       flex-direction: row-reverse;
     }
 
-    /* На мобильных всегда колонка */
-    @media (max-width: 768px) {
-      flex-direction: column !important;
-    }
+   
   }
 
   .cardImage {
@@ -529,12 +677,7 @@
 
 
 
-/*about us*/
 
-/* src/components/AboutSection/AboutSection.module.scss */
-
-
-/* ===== Мобильная адаптация для всех секций (max-width: 768px) ===== */
 @media (max-width: 768px) {
   /* Hero Section */
   .heroSection {
@@ -771,6 +914,72 @@
       }
       p {
         font-size: 0.9rem;
+      }
+    }
+  }
+   .contactSection {
+    padding: 2rem 1rem;
+
+    .container {
+      padding: 0; /* уже задали отступ у секции */
+    }
+
+    .title {
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .inner {
+      flex-direction: column;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    /* Блок контактной информации */
+    .info {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+
+      .card {
+        padding: 1rem;
+        text-align: center;
+
+        h3 {
+          font-size: 1.1rem;
+        }
+        p {
+          font-size: 0.9rem;
+        }
+        .socials {
+          justify-content: center;
+          gap: 1rem;
+        }
+      }
+    }
+
+    /* Форма */
+    .form {
+      margin-top: 2rem;
+      padding: 1rem;
+
+      .field {
+        margin-bottom: 1rem;
+
+        label {
+          font-size: 0.85rem;
+        }
+        input,
+        textarea {
+          font-size: 0.9rem;
+          padding: 0.6rem;
+        }
+      }
+
+      .submitBtn {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
       }
     }
   }
