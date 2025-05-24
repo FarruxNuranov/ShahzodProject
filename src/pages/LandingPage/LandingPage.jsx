@@ -1,11 +1,11 @@
 // src/pages/LandingPage/LandingPage.jsx
 import React, { useState } from "react";
-import Navbar from '@/components/Navbar/Navbar.jsx'
+import Navbar from '../../components/navbar/Navbar.jsx'
 import styles from "./LandingPage.module.scss";
 import Lottie from "lottie-react";
-import robotAnimation from "@/assets/robot.json";
+import robotAnimation from "../../assets/robot.json";
 import { Swiper, SwiperSlide } from "swiper/react";
-import portrait from '@/assets/portrait.png' // ваш портрет
+import portrait from '../../assets/portrait.png' // ваш портрет
 // Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";

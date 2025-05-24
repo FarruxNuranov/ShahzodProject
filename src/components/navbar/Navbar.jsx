@@ -1,7 +1,7 @@
 // src/components/Navbar/Navbar.jsx
 import React from 'react'
 import styles from './Navbar.module.scss'
-import logo from '@/assets/log.png'
+import logo from '../../assets/log.png'
 
 export default function Navbar() {
   const handleScroll = (sectionId) => (e) => {
