@@ -12,11 +12,14 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const partnerIcons = [
-  "/src/assets/log.png",
-  "/src/assets/log.png",
-  "/src/assets/log.png",
-  "/src/assets/log.png",
-  "/src/assets/log.png",
+  "../../assets/log.png",
+  "../../assets/log.png",
+  "../../assets/log.png",
+  "../../assets/log.png",
+  "../../assets/log.png",
+  "../../assets/log.png",
+  "../../assets/log.png",
+  
 ];
 
 const videos = [
@@ -72,17 +75,17 @@ const videos = [
 
 const cards = [
   {
-    img: '../src/assets/item1.jpg',
+    img: '../../assets/item1.jpg',
     heading: 'Player Detection from Video',
     text: 'The first step is detecting the players on the football field using video input. This involves using computer vision techniques such as object detection (e.g., YOLO, OpenPose, or MediaPipe) to accurately identify and track each player throughout the match. This stage is essential for gathering data about player movements, positions, and actions.'
   },
   {
-    img: '/src/assets/item2.jpg',
+    img: '../../assets/item2.jpg',
     heading: 'Event Detection in the Game',
     text: 'The second step is recognizing key events during the game. This includes detecting passes, goals, fouls, offsides, and other significant moments. Using machine learning models trained on labeled football footage, the system can classify actions based on video patterns and context. This step helps structure the match into understandable segments for further analysis.'
   },
   {
-    img: '/src/assets/item1.jpg',
+    img: '../../assets/item1.jpg',
     heading: 'Heading Three',
     text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
   }
