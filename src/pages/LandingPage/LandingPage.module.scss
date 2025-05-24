@@ -5,18 +5,18 @@
   background: url('../../assets/heroBackground.webp');
   background-repeat: no-repeat;
   background-size: cover;
-   &::after {
+
+  &::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 200px; /* высоту можно подогнать */
-    background: linear-gradient(
-      to bottom,
-      rgba(46, 60, 47, 0) 0%,
-      #000 100%
-    );
+    height: 200px;
+    /* высоту можно подогнать */
+    background: linear-gradient(to bottom,
+        rgba(46, 60, 47, 0) 0%,
+        #000 100%);
     pointer-events: none;
     z-index: 1;
   }
@@ -47,26 +47,39 @@
 
 .content {
   flex: 1;
-    flex: 0 1 45%;
-    max-width: 45%;
-    
-    /* при необходимости снизить максимальный размер на больших экранах */
-    @media (min-width: 1600px) {
-      max-width: 800px;
-    }
-  
+  flex: 0 1 45%;
+  max-width: 45%;
+
+  /* при необходимости снизить максимальный размер на больших экранах */
+  @media (min-width: 1600px) {
+    max-width: 800px;
+  }
+
   .badge {
     display: inline-block;
     background: rgba(46, 60, 47, 0.6);
     padding: 0.25rem 0.75rem;
     border-radius: 4px;
     font-size: 0.875rem;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
 
   .title {
     margin-top: 1rem;
     font-size: 4rem;
     line-height: 1.1;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 
     .highlight {
       color: #7ed321;
@@ -78,6 +91,13 @@
     margin-top: 1rem;
     font-size: 1rem;
     opacity: 0.8;
+    font-family: 'Courier New', monospace;
+    font-weight: 400;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
 
   .buttons {
@@ -115,9 +135,11 @@
 
 .animation {
   flex: 1;
-  flex-basis: 2%;     /* займёт 60% доступного пространства */
-  height: auto;        /* высота подгонится автоматически */
-  aspect-ratio: 1/1; 
+  flex-basis: 2%;
+  /* займёт 60% доступного пространства */
+  height: auto;
+  /* высота подгонится автоматически */
+  aspect-ratio: 1/1;
 }
 
 /* ============== Секция партнёров ============== */
@@ -160,161 +182,342 @@
 
 
 /* ========== Video Slider Section ========== */
+/* src/pages/LandingPage/LandingPage.module.scss */
+
+/* ========== Video Section ========== */
 .videoSection {
   padding: 4rem 0;
-  background-color: #000;
+  background: #000;
+
+  .sectionTitle {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Courier New', monospace;
+
+  }
 
 
-  
-
-  /* Большой YouTube-плеер */
   .playerWrapper {
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
 
     iframe {
-      width: 100%;
+
+
       border-radius: 8px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     }
   }
 
-  /* Swiper-контейнер */
   .videoSwiper {
-    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    margin: 0 auto;
 
-    /* ==== Навигационные стрелки ==== */
-    .swiper-button-prev,
-    .swiper-button-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 48px;
-      height: 48px;
-      background: rgba(0, 0, 0, 0.6);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 1.6rem;
-      z-index: 20;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .swiper-button-prev { left: 8px; }
-    .swiper-button-next { right: 8px; }
-    .swiper-button-prev:hover,
-    .swiper-button-next:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
-    .swiper-button-prev.swiper-button-disabled,
-    .swiper-button-next.swiper-button-disabled {
-      opacity: 0.3;
-      cursor: default;
-    }
 
-    /* ==== Пагинация ==== */
-    .swiper-pagination {
-      bottom: 0.5rem !important;
-    }
-
-    /* ==== Карточки-миниатюры ==== */
     .thumbBox {
-      width: 320px;              /* фиксированная ширина */
-      height: 180px;             /* фиксированная высота */
-      margin: 0 auto;            /* центрируем внутри слайда */
+      margin-top: 10px;
+
+      cursor: pointer;
+      text-align: center;
+      border: 2px solid transparent;
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      width: 300px;
 
       img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+        width: 300px;
         display: block;
       }
 
       &:hover {
-        transform: translateY(-4px) scale(1.02);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+        transform: scale(1);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
       }
+    }
+
+
+
+    .activeThumb {
+      border-color: #7ed321;
+      transform: scale(1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
     }
 
     .thumbTitle {
       margin-top: 0.5rem;
       font-size: 0.875rem;
-      text-align: center;
       color: #fff;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
+  }
 
-    /* ==== Активная карточка ==== */
-    .swiper-slide-active .thumbBox {
-      border: 3px solid #7ed321;
-      transform: scale(1.05);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+  /* ==== Контролы под слайдером ==== */
+  .videoControls {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .arrowBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 4.5rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, opacity 0.2s;
+
+    &:hover:not(:disabled) {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+
+  .bullets {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .bullet,
+  .bulletActive {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .bullet {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  .bulletActive {
+    @extend .bullet;
+    background: #7ed321;
+  }
+}
+
+
+
+
+
+
+/* ========== Cards Section ========== */
+/* ========== Cards Section ========== */
+/* В LandingPage.module.scss */
+.aboutSection {
+  background-color: #000;
+  padding: 4rem 0;
+  color: #fff;
+
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .aboutContent {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .aboutText {
+    flex: 1;
+    min-width: 300px;
+
+    .title {
+      font-size: 3.5rem;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+     
+    }
+
+    .paragraph {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      color: #ccc;
+      font-size: 1rem;
+      font-family: 'Courier New', monospace;
+      font-weight: 400;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      letter-spacing: 1px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
+    }
+  }
+
+  .aboutImageContainer {
+    position: relative;
+    flex: 0 0 350px;
+    max-width: 350px;
+    min-width: 250px;
+
+    /* первая рамка сдвинута вверх и влево */
+    &::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: -12px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+    }
+
+    /* вторая рамка сдвинута вниз и вправо */
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      right: -12px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid rgba(126,211,33,0.6);
+      border-radius: 6px;
+    }
+
+    .portrait {
+      display: block;
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+  }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .aboutSection {
+    .aboutContent {
+      flex-direction: column;
+      text-align: center;
+    }
+    .aboutImageContainer {
+      margin: 0 auto;
+    }
+  }
+}
+/* ========== Alternating Cards Section ========== */
+.cardsSection {
+  background-color: #000000;
+  padding: 4rem 0;
+
+  .cardbox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .cardItem {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
+    }
+
+    /* Чётные карточки — направление row-reverse */
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+
+    /* На мобильных всегда колонка */
+    @media (max-width: 768px) {
+      flex-direction: column !important;
+    }
+  }
+
+  .cardImage {
+    flex: 0 0 45%;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .cardContent {
+    flex: 1;
+    padding: 2rem;
+
+    h3 {
+      margin: 0;
+      font-size: 1.75rem;
+      color: #fff;
+      line-height: 1.2;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      text-transform: uppercase;
+    letter-spacing: 2px;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #ccc;
+      line-height: 1.6;
+      font-family: 'Courier New', monospace;
+      font-weight: 400;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      letter-spacing: 1px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      hyphens: auto;
     }
   }
 }
 
 
 
+/*about us*/
 
-/* ========== Cards Section ========== */
-.cardsSection {
-  background-color: #000000;
-  padding: 4rem 0;
+/* src/components/AboutSection/AboutSection.module.scss */
 
-  .card_box {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-}
 
-.cardItem {
-  display: flex;
- 
-  background: rgba(46, 60, 47, 0.8);
-  border-radius: 9px;
-  overflow: hidden;      // чтобы картинка не вылезала
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-}
-
-.cardImage {
-  flex: 0 0 200px;       // фиксированная ширина
-  height: 150px;         // или auto, если хочется адаптивно
-  overflow: hidden;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   // обрезает фото, чтобы заполнить блок
-    display: block;
-  }
-}
-
-.cardContent {
-  flex: 1;
-  padding: 1.5rem;
-
-  h3 {
-    margin: 0;
-    font-size: 1.5rem;
-    color: #fff;
-  }
-
-  p {
-    margin-top: 0.5rem;
-    color: #ddd;
-    line-height: 1.6;
-  }
-}
