@@ -19,11 +19,9 @@ const partnerIcons = [
   logo,
   logo,
   logo,
-  logo,
-  logo,
-  logo,
-  logo,
-  logo,
+
+ 
+ 
  
 ];
 
