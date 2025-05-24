@@ -6,20 +6,25 @@ import Lottie from "lottie-react";
 import robotAnimation from "../../assets/robot.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import portrait from '../../assets/portrait.png' // ваш портрет
+
+import { Navigation, Pagination } from 'swiper/modules'
 // Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { item1, item2, logo } from "../../utils/getImg.js";
 
 const partnerIcons = [
-  "../../assets/log.png",
-  "../../assets/log.png",
-  "../../assets/log.png",
-  "../../assets/log.png",
-  "../../assets/log.png",
-  "../../assets/log.png",
-  "../../assets/log.png",
-  
+  logo,
+  logo,
+  logo,
+  logo,
+  logo,
+  logo,
+  logo,
+  logo,
+  logo,
+ 
 ];
 
 const videos = [
@@ -75,17 +80,17 @@ const videos = [
 
 const cards = [
   {
-    img: '../../assets/item1.jpg',
+    img: item1,
     heading: 'Player Detection from Video',
     text: 'The first step is detecting the players on the football field using video input. This involves using computer vision techniques such as object detection (e.g., YOLO, OpenPose, or MediaPipe) to accurately identify and track each player throughout the match. This stage is essential for gathering data about player movements, positions, and actions.'
   },
   {
-    img: '../../assets/item2.jpg',
+    img: item2,
     heading: 'Event Detection in the Game',
     text: 'The second step is recognizing key events during the game. This includes detecting passes, goals, fouls, offsides, and other significant moments. Using machine learning models trained on labeled football footage, the system can classify actions based on video patterns and context. This step helps structure the match into understandable segments for further analysis.'
   },
   {
-    img: '../../assets/item1.jpg',
+    img: item1,
     heading: 'Heading Three',
     text: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco.'
   }
@@ -153,10 +158,11 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <section className={styles.videoSection}>
+     <section className={styles.videoSection}>
       <div className="container">
-        <h2 className={styles.sectionTitle}>AI football commentator </h2>
+        <h2 className={styles.sectionTitle}>AI football commentator</h2>
 
+        {/* ——— Большой плеер ——— */}
         <div className={styles.playerWrapper}>
           <iframe
             width="100%"
@@ -169,41 +175,46 @@ export default function LandingPage() {
           />
         </div>
 
-        {/* Ряд миниатюр */}
-          <Swiper
-    onSwiper={setSwiper}
-    initialSlide={currentIndex}
-    spaceBetween={20}
-    slidesPerView={3}
-    className={styles.videoSwiper}
-   
-  >
-    {videos.map((video, idx) => (
-      <SwiperSlide key={video.id}>
-        <div
-          className={`${styles.thumbBox} ${
-            idx === currentIndex ? styles.activeThumb : ''
-          }`}
-          onClick={() => {
-            setCurrentIndex(idx)
-            swiper?.slideTo(idx)
+        {/* ——— Ряд миниатюр ——— */}
+        <Swiper
+          modules={[Navigation]}
+         
+          allowTouchMove={true}              
+          onSwiper={setSwiper}
+          initialSlide={initialIndex}
+          spaceBetween={20}
+          slidesPerView={3}
+          onSlideChange={({ activeIndex }) => {
+            setCurrentIndex(activeIndex)      /* теперь стрелки меняют индекс */
           }}
+          className={styles.videoSwiper}
         >
-          <img
-            src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
-            alt={video.title}
-          />
-          <p className={styles.thumbTitle}>{video.title}</p>
-        </div>
-      </SwiperSlide>
-    ))}
-  </Swiper>
+          {videos.map((video, idx) => (
+            <SwiperSlide key={video.id}>
+              <div
+                className={`${styles.thumbBox} ${
+                  idx === currentIndex ? styles.activeThumb : ''
+                }`}
+                onClick={() => {
+                  setCurrentIndex(idx)           /* клик меняет индекс */
+                  swiper.slideTo(idx)            /* и прокручивает слайдер */
+                }}
+              >
+                <img
+                  src={`https://img.youtube.com/vi/${video.id}/hqdefault.jpg`}
+                  alt={video.title}
+                />
+                <p className={styles.thumbTitle}>{video.title}</p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
 
-       
+        {/* ——— Свои стрелки и точки под слайдером ——— */}
         <div className={styles.videoControls}>
-          <button 
+          <button
             className={styles.arrowBtn}
-            onClick={() => swiper?.slidePrev()}
+            onClick={() => swiper.slidePrev()}
             disabled={currentIndex === 0}
           >
             ‹
@@ -220,7 +231,7 @@ export default function LandingPage() {
                 }
                 onClick={() => {
                   setCurrentIndex(idx)
-                  swiper?.slideTo(idx)
+                  swiper.slideTo(idx)
                 }}
               />
             ))}
@@ -228,7 +239,7 @@ export default function LandingPage() {
 
           <button
             className={styles.arrowBtn}
-            onClick={() => swiper?.slideNext()}
+            onClick={() => swiper.slideNext()}
             disabled={currentIndex === videos.length - 1}
           >
             ›
